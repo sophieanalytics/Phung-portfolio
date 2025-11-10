@@ -1,9 +1,472 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Navigation */
+        nav {
+            background-color: #fff;
+            padding: 20px 0;
+            border-bottom: 1px solid #e0e0e0;
+            margin-bottom: 40px;
+        }
+
+        nav .container {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #2563eb;
+        }
+
+        /* Main Content */
+        .main-content {
+            background-color: #fff;
+            padding: 60px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .profile-section {
+            display: flex;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .profile-left {
+            flex-shrink: 0;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: #1a1a2e;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 4rem;
+        }
+
+        .profile-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .profile-title {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .profile-info {
+            color: #666;
+        }
+
+        .profile-info p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .profile-info a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .profile-right {
+            flex: 1;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        a {
+            color: #2563eb;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Projects Section */
+        .project-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .project-card h3 {
+            color: #2563eb;
+        }
+
+        .project-tech {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .tech-tag {
+            background-color: #e7f3ff;
+            color: #2563eb;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* CV Section */
+        .cv-section {
+            margin-bottom: 40px;
+        }
+
+        .cv-entry {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .cv-entry:last-child {
+            border-bottom: none;
+        }
+
+        .cv-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+        }
+
+        .cv-date {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .cv-company {
+            color: #2563eb;
+            font-weight: 500;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .profile-section {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .main-content {
+                padding: 30px 20px;
+            }
+
+            nav .container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .cv-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
 <body>
-  <h1>YOUR NAME</h1>
-  <p>Welcome to my website!</p>
-  <img src="https://content.codecademy.com/articles/github-pages-via-web-app/happy-ice-cream.gif" />
-</body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">Your Name</div>
+            <ul class="nav-links">
+                <li><a href="#" class="nav-link active" data-tab="about">About</a></li>
+                <li><a href="#" class="nav-link" data-tab="projects">Projects</a></li>
+                <li><a href="#" class="nav-link" data-tab="cv">CV</a></li>
+            </ul>
+        </div>
+    </nav>
 
+    <!-- Main Content -->
+    <div class="container">
+        <div class="main-content">
+            <!-- About Tab -->
+            <div id="about" class="tab-content active">
+                <div class="profile-section">
+                    <div class="profile-left">
+                        <div class="profile-image">YN</div>
+                        <div class="profile-name">Your Name</div>
+                        <div class="profile-title">Data Scientist | Analyst</div>
+                        <div class="profile-info">
+                            <p>📍 Southampton, UK</p>
+                            <p>🎓 University of Southampton</p>
+                            <p><a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></p>
+                            <p><a href="https://github.com/yourusername" target="_blank">Github</a></p>
+                        </div>
+                    </div>
+                    <div class="profile-right">
+                        <h1>Hi! I'm Your Name</h1>
+                        
+                        <h2>About Me</h2>
+                        <p>I'm a data science student at <a href="#">University of Southampton</a>, pursuing an MSc in Data & Decision Analytics. I'm passionate about causal inference, machine learning, and applying data-driven solutions to real-world business problems.</p>
+                        
+                        <h2>Research Interests</h2>
+                        <p>My interests lie at the intersection of data science, causal inference, and business analytics. I'm particularly focused on developing practical solutions using statistical modeling, machine learning, and optimization techniques to solve complex business challenges.</p>
+                        
+                        <p>Currently, I'm exploring applications of causal data science, econometric methods, and advanced statistical techniques including propensity scores and double machine learning in business contexts.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projects Tab -->
+            <div id="projects" class="tab-content">
+                <h1>Projects</h1>
+                
+                <div class="project-card">
+                    <h3>Airbnb Price Prediction Model</h3>
+                    <p><strong>Description:</strong> Built a regression model to predict Airbnb listing prices using various property features and location data. Implemented feature engineering and model optimization techniques to improve prediction accuracy.</p>
+                    <p><strong>Key Achievements:</strong></p>
+                    <ul>
+                        <li>Achieved R² of 0.85 on test dataset</li>
+                        <li>Implemented multiple regression techniques (Linear, Ridge, Lasso)</li>
+                        <li>Created interactive visualizations for model interpretation</li>
+                    </ul>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Scikit-learn</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">Matplotlib</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Hospital Staffing Optimization</h3>
+                    <p><strong>Description:</strong> Developed an optimization model using linear programming to determine optimal staffing levels for a hospital, minimizing costs while meeting service requirements.</p>
+                    <p><strong>Key Achievements:</strong></p>
+                    <ul>
+                        <li>Reduced staffing costs by 15% while maintaining service quality</li>
+                        <li>Applied Markov chains to model patient flow</li>
+                        <li>Created sensitivity analysis for different demand scenarios</li>
+                    </ul>
+                    <div class="project-tech">
+                        <span class="tech-tag">R</span>
+                        <span class="tech-tag">Linear Programming</span>
+                        <span class="tech-tag">Operations Research</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Causal Inference Study: Marketing Campaign Analysis</h3>
+                    <p><strong>Description:</strong> Analyzed the causal effect of a marketing campaign on customer conversion using propensity score matching and difference-in-differences methodology.</p>
+                    <p><strong>Key Achievements:</strong></p>
+                    <ul>
+                        <li>Identified true causal effect separating from confounding factors</li>
+                        <li>Implemented multiple causal inference techniques</li>
+                        <li>Provided actionable recommendations for future campaigns</li>
+                    </ul>
+                    <div class="project-tech">
+                        <span class="tech-tag">R</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Causal Inference</span>
+                        <span class="tech-tag">Statistical Modeling</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CV Tab -->
+            <div id="cv" class="tab-content">
+                <h1>Curriculum Vitae</h1>
+
+                <div class="cv-section">
+                    <h2>Education</h2>
+                    
+                    <div class="cv-entry">
+                        <div class="cv-header">
+                            <div>
+                                <h3>MSc Data & Decision Analytics</h3>
+                                <p class="cv-company">University of Southampton</p>
+                            </div>
+                            <span class="cv-date">2024 - 2025</span>
+                        </div>
+                        <p>Specializing in statistical modeling, machine learning, causal inference, and operations research. Key modules include Operational Research, Statistical Analysis, Machine Learning Methods, and Stochastic Processes.</p>
+                        <p><strong>Relevant Coursework:</strong> Linear Programming, Markov Chains, Regression Analysis, Probability Theory, Optimization Methods</p>
+                    </div>
+
+                    <div class="cv-entry">
+                        <div class="cv-header">
+                            <div>
+                                <h3>Bachelor of Science in [Your Degree]</h3>
+                                <p class="cv-company">[Your University]</p>
+                            </div>
+                            <span class="cv-date">20XX - 20XX</span>
+                        </div>
+                        <p>Description of your undergraduate degree and achievements.</p>
+                    </div>
+                </div>
+
+                <div class="cv-section">
+                    <h2>Experience</h2>
+                    
+                    <div class="cv-entry">
+                        <div class="cv-header">
+                            <div>
+                                <h3>Data Analyst Intern</h3>
+                                <p class="cv-company">Company Name</p>
+                            </div>
+                            <span class="cv-date">Month Year - Month Year</span>
+                        </div>
+                        <ul>
+                            <li>Analyzed large datasets to identify trends and patterns</li>
+                            <li>Created dashboards and visualizations for stakeholders</li>
+                            <li>Collaborated with cross-functional teams to deliver insights</li>
+                        </ul>
+                    </div>
+
+                    <div class="cv-entry">
+                        <div class="cv-header">
+                            <div>
+                                <h3>Research Assistant</h3>
+                                <p class="cv-company">University Project</p>
+                            </div>
+                            <span class="cv-date">Month Year - Month Year</span>
+                        </div>
+                        <ul>
+                            <li>Conducted statistical analysis for research projects</li>
+                            <li>Developed predictive models using machine learning</li>
+                            <li>Published findings in academic contexts</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="cv-section">
+                    <h2>Skills</h2>
+                    
+                    <div class="cv-entry">
+                        <h3>Programming Languages</h3>
+                        <p>Python, R, SQL</p>
+                    </div>
+
+                    <div class="cv-entry">
+                        <h3>Data Science & Analytics</h3>
+                        <p>Machine Learning, Statistical Modeling, Causal Inference, A/B Testing, Data Visualization, Optimization, Operations Research</p>
+                    </div>
+
+                    <div class="cv-entry">
+                        <h3>Tools & Technologies</h3>
+                        <p>Pandas, NumPy, Scikit-learn, TensorFlow, Matplotlib, Seaborn, Excel, Tableau, Git</p>
+                    </div>
+
+                    <div class="cv-entry">
+                        <h3>Languages</h3>
+                        <p>English (Fluent), Vietnamese (Native)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching functionality
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all links and tabs
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+                
+                // Add active class to clicked link
+                this.classList.add('active');
+                
+                // Show corresponding tab
+                const tabId = this.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    </script>
+</body>
 </html>
