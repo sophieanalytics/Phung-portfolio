@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Portfolio</title>
+    <title>Phung Tran (Sophie) - Portfolio</title>
     <style>
         * {
             margin: 0;
@@ -78,19 +78,21 @@
 
         .profile-left {
             flex-shrink: 0;
+            width: 250px;
         }
 
         .profile-image {
             width: 200px;
             height: 200px;
             border-radius: 50%;
-            background-color: #1a1a2e;
             margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 4rem;
+            overflow: hidden;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         .profile-name {
@@ -102,6 +104,7 @@
         .profile-title {
             color: #666;
             margin-bottom: 30px;
+            line-height: 1.4;
         }
 
         .profile-info {
@@ -109,7 +112,7 @@
         }
 
         .profile-info p {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -120,8 +123,53 @@
             text-decoration: none;
         }
 
+        .profile-info a:hover {
+            text-decoration: underline;
+        }
+
         .profile-right {
             flex: 1;
+        }
+
+        .section-box {
+            background-color: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 40px;
+            margin-top: 40px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .section-box h2 {
+            margin-top: 0;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        /* Visualization Gallery */
+        .viz-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .viz-item {
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .viz-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .viz-item img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         h1 {
@@ -167,14 +215,54 @@
             padding: 30px;
             margin-bottom: 30px;
             transition: box-shadow 0.3s;
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
         }
 
         .project-card:hover {
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
+        .project-image {
+            flex-shrink: 0;
+            width: 250px;
+            height: 180px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .project-content {
+            flex: 1;
+        }
+
         .project-card h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .github-link {
             color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            padding: 8px 16px;
+            border: 1px solid #2563eb;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+
+        .github-link:hover {
+            background-color: #2563eb;
+            color: #fff;
         }
 
         .project-tech {
@@ -241,6 +329,18 @@
                 gap: 30px;
             }
 
+            .profile-left {
+                width: 100%;
+            }
+
+            .project-card {
+                flex-direction: column;
+            }
+
+            .project-image {
+                width: 100%;
+            }
+
             .main-content {
                 padding: 30px 20px;
             }
@@ -262,10 +362,9 @@
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <div class="logo">Your Name</div>
+            <div class="logo">Phung Tran (Sophie)</div>
             <ul class="nav-links">
                 <li><a href="#" class="nav-link active" data-tab="about">About</a></li>
-                <li><a href="#" class="nav-link" data-tab="projects">Projects</a></li>
                 <li><a href="#" class="nav-link" data-tab="cv">CV</a></li>
             </ul>
         </div>
@@ -278,84 +377,219 @@
             <div id="about" class="tab-content active">
                 <div class="profile-section">
                     <div class="profile-left">
-                        <div class="profile-image">YN</div>
-                        <div class="profile-name">Your Name</div>
-                        <div class="profile-title">Data Scientist | Analyst</div>
+                        <div class="profile-image">
+                            <img src="image/profile-image.jpg" alt="Phung Tran Sophie">
+                        </div>
+                        <div class="profile-name">Phung Tran (Sophie)</div>
+                        <div class="profile-title">Data Analyst | Data Scientist</div>
                         <div class="profile-info">
-                            <p>📍 Southampton, UK</p>
-                            <p>🎓 University of Southampton</p>
-                            <p><a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></p>
-                            <p><a href="https://github.com/yourusername" target="_blank">Github</a></p>
+                            <p>📍 Southampton, UK. Willing to relocate</p>
+                            <p>📧 <a href="mailto:tkpt1n25@soton.ac.uk">tkpt1n25@soton.ac.uk</a></p>
+                            <p>📧 <a href="mailto:kphungtran28@gmail.com">kphungtran28@gmail.com</a></p>
+                            <p>📱 +447525034291</p>
+                            <p><a href="https://www.linkedin.com/in/kim-phung-tran/" target="_blank">LinkedIn</a></p>
+                            <p><a href="https://github.com/sophieanalytics/Phung-portfolio" target="_blank">Github</a></p>
                         </div>
                     </div>
                     <div class="profile-right">
-                        <h1>Hi! I'm Your Name</h1>
+                        <h1>Hi! I'm Sophie</h1>
                         
-                        <h2>About Me</h2>
-                        <p>I'm a data science student at <a href="#">University of Southampton</a>, pursuing an MSc in Data & Decision Analytics. I'm passionate about causal inference, machine learning, and applying data-driven solutions to real-world business problems.</p>
+                        <h2>Profile Summary</h2>
+                        <p>I'm a Data Analyst with 4+ years of experience in Product and Data Analytics, currently pursuing an MSc in Data and Decision Analytics at <a href="https://www.southampton.ac.uk">University of Southampton</a>. I'm skilled at deriving actionable insights from diverse datasets and passionate about advancing into Data Science roles.</p>
                         
-                        <h2>Research Interests</h2>
-                        <p>My interests lie at the intersection of data science, causal inference, and business analytics. I'm particularly focused on developing practical solutions using statistical modeling, machine learning, and optimization techniques to solve complex business challenges.</p>
+                        <p>My expertise spans across data visualization, advanced analytics, and data infrastructure. I have a proven track record of analyzing millions of data points, building predictive models, and creating data-driven solutions that drive business decisions.</p>
                         
-                        <p>Currently, I'm exploring applications of causal data science, econometric methods, and advanced statistical techniques including propensity scores and double machine learning in business contexts.</p>
+                        <h2>Career Interests</h2>
+                        <p>My interests lie at the intersection of data analytics, machine learning, and business strategy. I'm particularly focused on leveraging statistical modeling, causal inference, and advanced analytics to solve complex business challenges and drive operational efficiency.</p>
+                        
+                        <p>I'm exploring opportunities in data science, analytics engineering, and product analytics where I can apply my technical skills and business acumen to create meaningful impact.</p>
                     </div>
                 </div>
-            </div>
 
-            <!-- Projects Tab -->
-            <div id="projects" class="tab-content">
-                <h1>Projects</h1>
+                <!-- Projects Section - Separate Box -->
+                <div class="section-box">
+                    <h2>Personal Projects</h2>
+                    
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="image/adidas-678x381.jpg" alt="adidas">
+                        </div>
+                        <div class="project-content">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                                <h3 style="margin: 0;">CRAWLING: Adidas10KParis</h3>
+                                <a href="https://github.com/yourusername/project1" target="_blank" class="github-link">
+                                    <span style="margin-right: 5px;">🔗</span> GitHub
+                                </a>
+                            </div>
+                            <p><a href="https://resultscui.active.com/events/adidas10KParis2024" target="_blank">https://resultscui.active.com/events/adidas10KParis2024</a></p>
+                            <p>This project automates the extraction of race results from the Adidas 10K Paris 2024 event using Python and Selenium. A custom web crawler was built to repeatedly load and capture participant data from the website. The script collected over 11,000 race entries, saving them into a structured dataset for further analysis.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Selenium</span>
+                                <span class="tech-tag">Pandas</span>
+                                <span class="tech-tag">Web Crawling</span>
+                                <span class="tech-tag">Data Collection</span>
+                                <span class="tech-tag">Data Cleaning</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="image/TechinAsia_logo.png" alt="tech in asia">
+                        </div>
+                        <div class="project-content">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                                <h3 style="margin: 0;">CRAWLING: Tech in Asia - Companies</h3>
+                                <a href="https://github.com/yourusername/project1" target="_blank" class="github-link">
+                                    <span style="margin-right: 5px;">🔗</span> GitHub
+                                </a>
+                            </div>
+                            <p><a href="https://www.techinasia.com/companies" target="_blank">https://www.techinasia.com/companies</a></p>
+                            <p>This project focuses on web crawling and data extraction from the Tech in Asia Companies directory using Python and Selenium. The automated crawler scrolls through dynamically loaded content, collects company details such as name, country, industry, funding stage, and description, and stores them in a structured dataset for analysis.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Selenium</span>
+                                <span class="tech-tag">Pandas</span>
+                                <span class="tech-tag">Web Crawling</span>
+                                <span class="tech-tag">Data Collection</span>
+                                <span class="tech-tag">Data Cleaning</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="image/forecasting2.jpg" alt="Forecasting Model">
+                        </div>
+                        <div class="project-content">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                                <h3 style="margin: 0;">Time Series Forcasting</h3>
+                                <a href="https://github.com/yourusername/project3" target="_blank" class="github-link">
+                                    <span style="margin-right: 5px;">🔗</span> GitHub
+                                </a>
+                            </div>
+                            <p>Developed a lead-scoring model using Python to improve sales operations and optimize account classification for a live-selling SaaS platform. Achieved 90% accuracy in key account classification and analyzed 30M+ data points to improve operational efficiency.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Forcasting</span>
+                                <span class="tech-tag">Seaborn</span>
+                                <span class="tech-tag">Statsmodels</span>
+                                <span class="tech-tag">Predictive Modeling</span>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="project-card">
+                        <div class="project-image">
+                            <img src="image/classification.png" alt="classification Model">
+                        </div>
+                        <div class="project-content">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                                <h3 style="margin: 0;">Classification Model - Machine Learning</h3>
+                                <a href="https://github.com/yourusername/project3" target="_blank" class="github-link">
+                                    <span style="margin-right: 5px;">🔗</span> GitHub
+                                </a>
+                            </div>
+                            <p>Developed a lead-scoring model using Python to improve sales operations and optimize account classification for a live-selling SaaS platform. Achieved 90% accuracy in key account classification and analyzed 30M+ data points to improve operational efficiency.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Classification</span>
+                                <span class="tech-tag">Supervised Learning</span>
+                                <span class="tech-tag">Machine Learning</span>
+                                <span class="tech-tag">Predictive Modeling</span>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="project-card">
+                        <div class="project-image">
+                            <img src="image/clustering.jpg" alt="Forecasting Model">
+                        </div>
+                        <div class="project-content">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                                <h3 style="margin: 0;">Pyspark - Clustering-Customer-Segmentation</h3>
+                                <a href="https://github.com/yourusername/project3" target="_blank" class="github-link">
+                                    <span style="margin-right: 5px;">🔗</span> GitHub
+                                </a>
+                            </div>
+                            <p>Developed a lead-scoring model using Python to improve sales operations and optimize account classification for a live-selling SaaS platform. Achieved 90% accuracy in key account classification and analyzed 30M+ data points to improve operational efficiency.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Pyspark</span>
+                                <span class="tech-tag">Unsupervised Learning</span>
+                                <span class="tech-tag">Machine Learning</span>
+                                <span class="tech-tag">Clustering</span>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="project-card">
+                        <div class="project-image">
+                            <img src="image/recommendation.png" alt="Forecasting Model">
+                        </div>
+                        <div class="project-content">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                                <h3 style="margin: 0;">Pyspark - Recommendation</h3>
+                                <a href="https://github.com/yourusername/project3" target="_blank" class="github-link">
+                                    <span style="margin-right: 5px;">🔗</span> GitHub
+                                </a>
+                            </div>
+                            <p>Developed a lead-scoring model using Python to improve sales operations and optimize account classification for a live-selling SaaS platform. Achieved 90% accuracy in key account classification and analyzed 30M+ data points to improve operational efficiency.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Classification</span>
+                                <span class="tech-tag">Supervised Learning</span>
+                                <span class="tech-tag">Machine Learning</span>
+                                <span class="tech-tag">Predictive Modeling</span>
+                            </div>
+                        </div>
+                    </div>   
+                    
+                     <div class="project-card">
+                        <div class="project-image">
+                            <img src="image/Association.png" alt="Forecasting Model">
+                        </div>
+                        <div class="project-content">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                                <h3 style="margin: 0;">Pyspark - Association</h3>
+                                <a href="https://github.com/yourusername/project3" target="_blank" class="github-link">
+                                    <span style="margin-right: 5px;">🔗</span> GitHub
+                                </a>
+                            </div>
+                            <p>Developed a lead-scoring model using Python to improve sales operations and optimize account classification for a live-selling SaaS platform. Achieved 90% accuracy in key account classification and analyzed 30M+ data points to improve operational efficiency.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Classification</span>
+                                <span class="tech-tag">Supervised Learning</span>
+                                <span class="tech-tag">Machine Learning</span>
+                                <span class="tech-tag">Predictive Modeling</span>
+                            </div>
+                        </div>
+                    </div>  
+
+                </div>
                 
-                <div class="project-card">
-                    <h3>Airbnb Price Prediction Model</h3>
-                    <p><strong>Description:</strong> Built a regression model to predict Airbnb listing prices using various property features and location data. Implemented feature engineering and model optimization techniques to improve prediction accuracy.</p>
-                    <p><strong>Key Achievements:</strong></p>
-                    <ul>
-                        <li>Achieved R² of 0.85 on test dataset</li>
-                        <li>Implemented multiple regression techniques (Linear, Ridge, Lasso)</li>
-                        <li>Created interactive visualizations for model interpretation</li>
-                    </ul>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Scikit-learn</span>
-                        <span class="tech-tag">Pandas</span>
-                        <span class="tech-tag">Matplotlib</span>
-                    </div>
+                
                 </div>
 
-                <div class="project-card">
-                    <h3>Hospital Staffing Optimization</h3>
-                    <p><strong>Description:</strong> Developed an optimization model using linear programming to determine optimal staffing levels for a hospital, minimizing costs while meeting service requirements.</p>
-                    <p><strong>Key Achievements:</strong></p>
-                    <ul>
-                        <li>Reduced staffing costs by 15% while maintaining service quality</li>
-                        <li>Applied Markov chains to model patient flow</li>
-                        <li>Created sensitivity analysis for different demand scenarios</li>
-                    </ul>
-                    <div class="project-tech">
-                        <span class="tech-tag">R</span>
-                        <span class="tech-tag">Linear Programming</span>
-                        <span class="tech-tag">Operations Research</span>
-                    </div>
-                </div>
+                
 
-                <div class="project-card">
-                    <h3>Causal Inference Study: Marketing Campaign Analysis</h3>
-                    <p><strong>Description:</strong> Analyzed the causal effect of a marketing campaign on customer conversion using propensity score matching and difference-in-differences methodology.</p>
-                    <p><strong>Key Achievements:</strong></p>
-                    <ul>
-                        <li>Identified true causal effect separating from confounding factors</li>
-                        <li>Implemented multiple causal inference techniques</li>
-                        <li>Provided actionable recommendations for future campaigns</li>
-                    </ul>
-                    <div class="project-tech">
-                        <span class="tech-tag">R</span>
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Causal Inference</span>
-                        <span class="tech-tag">Statistical Modeling</span>
+                <!-- Visualization Section - Only Images -->
+                <!-- <div class="section-box">
+                    <h2>Charts & Visualizations</h2>
+                    
+                    <div class="viz-gallery">
+                        <div class="viz-item">
+                            <img src="YOUR_CHART_IMAGE_URL_1" alt="Data Visualization 1">
+                        </div>
+                        <div class="viz-item">
+                            <img src="YOUR_CHART_IMAGE_URL_2" alt="Data Visualization 2">
+                        </div>
+                        <div class="viz-item">
+                            <img src="YOUR_CHART_IMAGE_URL_3" alt="Data Visualization 3">
+                        </div>
+                        <div class="viz-item">
+                            <img src="YOUR_CHART_IMAGE_URL_4" alt="Data Visualization 4">
+                        </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- CV Tab -->
             <div id="cv" class="tab-content">
@@ -367,83 +601,121 @@
                     <div class="cv-entry">
                         <div class="cv-header">
                             <div>
-                                <h3>MSc Data & Decision Analytics</h3>
-                                <p class="cv-company">University of Southampton</p>
+                                <h3>MSc in Data and Decision Analytics</h3>
+                                <p class="cv-company">University of Southampton, School of Mathematical Sciences</p>
                             </div>
-                            <span class="cv-date">2024 - 2025</span>
+                            <span class="cv-date">Sept 2025 - Sept 2026</span>
                         </div>
-                        <p>Specializing in statistical modeling, machine learning, causal inference, and operations research. Key modules include Operational Research, Statistical Analysis, Machine Learning Methods, and Stochastic Processes.</p>
-                        <p><strong>Relevant Coursework:</strong> Linear Programming, Markov Chains, Regression Analysis, Probability Theory, Optimization Methods</p>
+                        <p>Specializing in statistical modeling, machine learning, causal inference, and operations research.</p>
                     </div>
 
                     <div class="cv-entry">
                         <div class="cv-header">
                             <div>
-                                <h3>Bachelor of Science in [Your Degree]</h3>
-                                <p class="cv-company">[Your University]</p>
+                                <h3>Data Science Certificate</h3>
+                                <p class="cv-company">VNUHCM – University of Science</p>
                             </div>
-                            <span class="cv-date">20XX - 20XX</span>
+                            <span class="cv-date">Apr 2024 - Apr 2025</span>
                         </div>
-                        <p>Description of your undergraduate degree and achievements.</p>
+                        <p>GPA: 9.8/10</p>
+                    </div>
+
+                    <div class="cv-entry">
+                        <div class="cv-header">
+                            <div>
+                                <h3>Bachelor of Corporate Finance</h3>
+                                <p class="cv-company">University of Economics Ho Chi Minh City</p>
+                            </div>
+                            <span class="cv-date">July 2015 - July 2019</span>
+                        </div>
+                        <p>GPA: 7.6/10 | Awarded Top 5% Scholarship for academic excellence (2016)</p>
                     </div>
                 </div>
 
                 <div class="cv-section">
-                    <h2>Experience</h2>
+                    <h2>Work Experience</h2>
                     
                     <div class="cv-entry">
                         <div class="cv-header">
                             <div>
-                                <h3>Data Analyst Intern</h3>
-                                <p class="cv-company">Company Name</p>
+                                <h3>Data Analyst</h3>
+                                <p class="cv-company">Upmesh - SaaS, Live Selling Made Easy (Remote)</p>
                             </div>
-                            <span class="cv-date">Month Year - Month Year</span>
+                            <span class="cv-date">Mar 2022 - Dec 2024</span>
                         </div>
                         <ul>
-                            <li>Analyzed large datasets to identify trends and patterns</li>
-                            <li>Created dashboards and visualizations for stakeholders</li>
-                            <li>Collaborated with cross-functional teams to deliver insights</li>
+                            <li>Leveraged Python and SQL to analyse 30M+ data points, improving operational efficiency and supporting data-driven product decisions</li>
+                            <li>Developed lead-scoring models using Python to improve sales operations, achieving 90% accuracy in key account classification</li>
+                            <li>Built and standardised dashboards across four countries using Metabase, Sisense, Amplitude, and Excel to monitor seller and buyer performance</li>
+                            <li>Managed and maintained ETL pipelines with dbt and Airflow, ensuring data reliability and workflow automation</li>
+                            <li>Designed and planned tracking metrics, collaborating with developers to implement accurate event data collection</li>
+                            <li>Managed P&L reports and insights on a weekly, monthly, and quarterly basis to support strategic decisions</li>
                         </ul>
                     </div>
 
                     <div class="cv-entry">
                         <div class="cv-header">
                             <div>
-                                <h3>Research Assistant</h3>
-                                <p class="cv-company">University Project</p>
+                                <h3>Data Analyst</h3>
+                                <p class="cv-company">Scaleflex - SaaS, Digital Asset Management (Remote)</p>
                             </div>
-                            <span class="cv-date">Month Year - Month Year</span>
+                            <span class="cv-date">Aug 2021 - Jul 2022</span>
                         </div>
                         <ul>
-                            <li>Conducted statistical analysis for research projects</li>
-                            <li>Developed predictive models using machine learning</li>
-                            <li>Published findings in academic contexts</li>
+                            <li>Designed and maintained 25+ BI dashboards using PostgreSQL, ClickHouse, and visualisation tools to support R&D decisions</li>
+                            <li>Collected and cleaned data from multiple sources using Python (Selenium) to support business analyses</li>
+                            <li>Managed a cross-functional team of developers to define key features and deliver an internal data platform that enabled Sales and R&D teams to monitor analytics and make data-driven strategic decisions</li>
+                        </ul>
+                    </div>
+
+                    <div class="cv-entry">
+                        <div class="cv-header">
+                            <div>
+                                <h3>E-commerce Analyst</h3>
+                                <p class="cv-company">Customore - SaaS, Ecommerce Analytics Platform (Ho Chi Minh City)</p>
+                            </div>
+                            <span class="cv-date">Nov 2020 - Aug 2021</span>
+                        </div>
+                        <ul>
+                            <li>Executed advanced SQL queries to extract, aggregate, and validate datasets for business reporting</li>
+                            <li>Ensured 99.99% data accuracy across ETL stages, from raw ingestion to production dashboards, by validating and identifying data errors using Excel</li>
+                            <li>Performed ad hoc analyses for key clients, including competitor monitoring and market share assessments</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="cv-section">
-                    <h2>Skills</h2>
+                    <h2>Technical Skills</h2>
                     
                     <div class="cv-entry">
-                        <h3>Programming Languages</h3>
-                        <p>Python, R, SQL</p>
+                        <h3>Programming & Analytics</h3>
+                        <p>Python (Numpy, Pandas, Seaborn, Matplotlib, Pyspark), R, Advanced SQL (MySQL, PostgreSQL), Amplitude, Hotjar</p>
                     </div>
 
                     <div class="cv-entry">
-                        <h3>Data Science & Analytics</h3>
-                        <p>Machine Learning, Statistical Modeling, Causal Inference, A/B Testing, Data Visualization, Optimization, Operations Research</p>
+                        <h3>Visualisation & Reporting</h3>
+                        <p>Metabase, Sisense, Excel, PowerPoint</p>
                     </div>
 
                     <div class="cv-entry">
-                        <h3>Tools & Technologies</h3>
-                        <p>Pandas, NumPy, Scikit-learn, TensorFlow, Matplotlib, Seaborn, Excel, Tableau, Git</p>
+                        <h3>Data Infrastructure</h3>
+                        <p>dbt, Airflow, AWS Redshift, ClickHouse</p>
                     </div>
 
                     <div class="cv-entry">
-                        <h3>Languages</h3>
-                        <p>English (Fluent), Vietnamese (Native)</p>
+                        <h3>Collaboration & Product Tools</h3>
+                        <p>Jira, Confluence, Notion, Figma, Figjam, Miro</p>
                     </div>
+                </div>
+
+                <div class="cv-section">
+                    <h2>Soft Skills</h2>
+                    <p>Problem Solving • Critical Thinking • Communication • Data Storytelling • Collaboration • Teamwork • Business Acumen • Attention to Detail • Adaptability • Time Management • Stakeholder Management</p>
+                </div>
+
+                <div class="cv-section">
+                    <h2>Languages</h2>
+                    <p>English (Fluent) • Vietnamese (Native)</p>
                 </div>
             </div>
         </div>
